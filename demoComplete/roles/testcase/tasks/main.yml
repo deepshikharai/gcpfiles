@@ -1,0 +1,31 @@
+- name: run shell script
+  shell: |
+         #!/bin/bash
+         cd /home/drai96005/demoComplete 
+         #sudo docker rm $(sudo docker ps -a -q)
+         #sudo docker rmi $(sudo docker images -q)
+         #sudo docker container prune -f
+         #sudo docker image prune -f
+         sudo docker rmi phptravel
+         sudo docker rmi deepshikharai/phptravel:latest
+         sudo docker build --build-arg url=https://github.com/deepshikharai/phptestsite.git --build-arg path=phptestsite/phptravels-test/ -t phptravel .
+         sleep 2m
+         cd 
+         ls
+         #- name: execute image
+         #shell: |
+         #!/bin/bash
+         #hptravel
+         # sudo docker tag phptravel deepshikharai/phptravel:latest
+         #sudo docker login -u="deepshikharai" -p="infosys16"
+         #sudo docker push deepshikharai/phptravel:latest
+         #kubectl run --image=deepshikharai/phptravel:latest php-test --restart=Never
+- name: execute image
+  shell: |
+         #!/bin/bash
+         sudo docker tag phptravel deepshikharai/phptravel:latest
+         sudo docker push deepshikharai/phptravel:latest
+         cd /home/drai96005/imageexecution/
+         kubectl create -f nfs-pv.yaml
+         kubectl create -f nfs-pvc.yaml
+         kubectl create -f php-test.yaml

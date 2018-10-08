@@ -1,0 +1,6 @@
+- name: deploy 
+  shell: |
+         #!\bin\bash
+         cd /home/drai96005/elk-deployment
+         ls
+         kubectl create -f filebeat-kubernetes.yaml
