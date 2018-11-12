@@ -1,0 +1,8 @@
+---
+- name: Deploy Terraform
+  hosts: localhost
+  vars: 
+    terraform_version: "0.11.8"
+  become: true
+  roles:
+    - { role: terraform }
