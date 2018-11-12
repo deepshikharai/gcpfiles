@@ -1,0 +1,11 @@
+- name: run shell
+  shell: |
+         #!/bin/basih
+         cd /home/drai96005/sele-hub-yaml
+         ls
+         pwd
+         kubectl create -f selenium-hub-rc.yaml
+         kubectl create -f selenium-node-chrome-rc.yaml
+         kubectl create -f selenium-node-firefox-rc.yaml
+         kubectl create -f selenium-hub-service.yaml
+         sleep 1m

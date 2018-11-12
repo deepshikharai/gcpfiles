@@ -1,0 +1,20 @@
+- name: run shell script
+  shell: |
+         #!/bin/bash
+         sudo docker rm $(sudo docker ps -a -q)
+         sudo docker rmi $(sudo docker images -q)
+         sudo docker rmi phptsele
+         sudo dcoker rmi deepshikharai/phptsele
+         cd /home/drai96005/ansibledemo
+         sudo docker build --build-arg url=https://github.com/deepshikharai/PHP-trav-simple.git --build-arg path=PHP-trav-simple/PHP_traveller/ --build-arg artifactid=PHP_traveller --build-arg version=0.0.1 -t phptsele .
+         sleep 2m
+
+- name: run docker image
+  shell: |
+         #!/bin/bash
+         sudo docker tag phptsele deepshikharai/phptsele:latest
+         sudo docker push deepshikharai/phptsele:latest
+         kubectl run --image=deepshikharai/phptsele:latest php-selegrid --restart=Never
+         # sudo docker run phpt
+  
+        
