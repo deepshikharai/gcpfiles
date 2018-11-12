@@ -1,0 +1,5 @@
+- name: 
+  shell: |
+         #!/bin/bash
+         cd home/drai96005/demoterraform
+         terraform destroy -auto-approve

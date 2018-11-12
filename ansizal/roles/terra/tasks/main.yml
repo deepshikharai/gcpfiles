@@ -1,0 +1,16 @@
+---
+ - name: run shell script
+   shell: |
+          #!/bin/bash
+          cd /home/drai96005/demoterraform
+          ls
+          terraform init
+          terraform plan
+          terraform apply -auto-approve
+          #gcloud container clusters get-credentials pcluster --zone us-west1-a --project ordinal-link-214805
+          gcloud beta container clusters get-credentials pcluster --region us-east1 --project ordinal-link-214805
+          #kubectl create clusterrolebinding pcluster-cluster-admin-binding --clusterrole=cluster-admin --user=demoterraform@ordinal-link-214805.iam.gserviceaccount.com
+          # kubectl create clusterrolebinding deepshikha --clusterrole=cluster-admin --user=drai96005@gmail.com
+          #kubectl create clusterrolebinding serviceaccounts-cluster-admin --clusterrole=cluster-admin --group=system:serviceaccounts
+          #kubectl create clusterrolebinding deepshikha --clusterrole=cluster-admmin --serviceaccount=default:demoterraform  
+          kubectl create clusterrolebinding serviceaccounts-cluster-admin --clusterrole=cluster-admin --group=system:serviceaccounts --namespace=zalenium
